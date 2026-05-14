@@ -522,6 +522,87 @@ a{color:inherit;text-decoration:none}
 .opt-tag.optional{background:var(--bg);color:var(--ink-muted);border:1px solid var(--line);font-weight:600}
 .opt-tag.launch{background:linear-gradient(135deg,#c8902f 0%,#e7c279 60%);color:#1a1206;border:1px solid #c8902f}
 
+/* ===== Pricing guide (주문 안내 · 가격 가이드) ===== */
+.pricing-guide{max-width:1200px;margin:0 auto;padding:0 40px 32px}
+.pg-main{
+  background:#fff;border:2px solid var(--red);border-radius:22px;
+  padding:44px 44px 32px;position:relative;margin-top:18px;
+  box-shadow:0 32px 64px -32px rgba(193,18,31,.22),0 8px 24px -14px rgba(28,20,12,.08);
+}
+.pg-main-pill{
+  position:absolute;top:-16px;left:34px;
+  display:inline-flex;align-items:center;gap:6px;
+  padding:9px 18px;border-radius:999px;
+  background:var(--red);color:#fff;
+  font-size:12.5px;font-weight:800;letter-spacing:.08em;
+  box-shadow:0 10px 24px -10px rgba(193,18,31,.55);
+}
+.pg-main-title{font-family:var(--ff-display);font-size:clamp(28px,3.4vw,40px);font-weight:700;line-height:1.1;letter-spacing:-.025em;color:var(--ink);margin-bottom:10px;font-variation-settings:"opsz" 96}
+.pg-main-title em{font-style:italic;color:var(--red);font-weight:800;letter-spacing:-.005em}
+.pg-main-desc{font-size:15px;line-height:1.65;color:var(--ink-soft);margin-bottom:24px;font-weight:500}
+.pg-main-desc .pg-color-note{font-size:12px;color:var(--ink-muted);font-weight:600;display:inline-block;margin-left:2px;letter-spacing:0}
+.pg-breakdown{padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:20px}
+.pg-line{display:flex;justify-content:space-between;align-items:baseline;padding:6px 0;font-size:15px}
+.pg-line span:first-child{color:var(--ink-soft);font-weight:500}
+.pg-line span:last-child{font-family:var(--ff-display);font-weight:600;color:var(--ink);letter-spacing:-.005em;font-variation-settings:"opsz" 96}
+.pg-line.total{border-top:1px solid var(--line);padding-top:11px;margin-top:6px}
+.pg-line.total span{color:var(--gold-deep);font-weight:800}
+.pg-line.discount span{color:var(--red);font-weight:800}
+.pg-final{display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap}
+.pg-final-label{font-family:var(--ff-display);font-size:clamp(22px,2.4vw,30px);font-weight:800;letter-spacing:-.015em;color:var(--ink);font-variation-settings:"opsz" 96}
+.pg-final-label::before{content:"★ ";color:var(--red);font-style:normal}
+.pg-final-price{font-family:var(--ff-display);font-style:italic;font-weight:800;font-size:clamp(40px,5vw,64px);color:var(--red);letter-spacing:-.025em;line-height:1;font-variation-settings:"opsz" 144}
+
+.pg-alt{
+  margin-top:18px;
+  background:var(--bg-soft);border:1px solid var(--forest-soft);border-radius:18px;
+  padding:22px 30px;
+  display:flex;justify-content:space-between;align-items:center;gap:24px;
+}
+.pg-alt-title{font-family:var(--ff-display);font-size:21px;font-weight:700;color:var(--ink);line-height:1.2;margin-bottom:6px;font-variation-settings:"opsz" 96}
+.pg-alt-tag{font-size:11.5px;font-weight:800;color:var(--gold-deep);background:var(--forest-tint);padding:4px 11px;border-radius:999px;margin-left:8px;letter-spacing:.02em;vertical-align:2px;border:1px solid var(--gold-light)}
+.pg-alt-desc{font-size:13.5px;color:var(--ink-soft);line-height:1.5;font-weight:500}
+.pg-alt-price{font-family:var(--ff-display);font-style:italic;font-weight:800;font-size:clamp(28px,3.2vw,38px);color:var(--ink);letter-spacing:-.02em;font-variation-settings:"opsz" 96;white-space:nowrap}
+
+.pg-addon-head{display:flex;align-items:center;gap:14px;margin:34px 0 14px}
+.pg-addon-kicker{font-family:var(--ff-display);font-style:italic;font-size:16.5px;font-weight:600;color:var(--gold-deep);letter-spacing:.02em}
+.pg-addon-line{flex:1;height:1px;background:var(--line)}
+
+.pg-addons{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.pg-addon{
+  background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:18px 22px;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  transition:all .3s ease;
+}
+.pg-addon:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 16px 32px -18px rgba(184,132,61,.28)}
+.pg-addon.star{
+  border:1.5px solid var(--red);
+  background:linear-gradient(180deg,#fdeaec 0%,#fff 50%);
+  box-shadow:0 12px 28px -16px rgba(193,18,31,.2);
+}
+.pg-addon-name{font-family:var(--ff-display);font-size:17px;font-weight:700;color:var(--ink);line-height:1.3;flex:1;min-width:0;font-variation-settings:"opsz" 72;letter-spacing:-.005em}
+.pg-addon-promo{font-size:12.5px;color:var(--red);font-weight:800;margin-left:6px;letter-spacing:.005em;white-space:nowrap}
+.pg-addon-sub{display:block;font-size:12px;color:var(--ink-muted);font-weight:500;margin-top:4px;letter-spacing:-.005em;font-family:var(--ff-body)}
+.pg-addon-price{font-family:var(--ff-display);font-style:italic;font-weight:700;font-size:22px;color:var(--ink);letter-spacing:-.01em;text-align:right;white-space:nowrap;font-variation-settings:"opsz" 96}
+.pg-addon-price s{display:block;color:var(--ink-muted);font-weight:500;font-size:13.5px;text-decoration:line-through;text-decoration-thickness:1.5px;text-decoration-color:rgba(106,106,102,.7);margin-bottom:1px;font-style:italic}
+.pg-addon-price strong{color:var(--red);font-weight:800;display:block;font-size:22px}
+
+.pg-note{
+  margin-top:24px;padding:16px 22px;
+  background:var(--forest-tint);border-left:3px solid var(--gold);border-radius:8px;
+  font-size:13px;color:var(--ink-soft);line-height:1.6;
+}
+.pg-note strong{color:var(--ink);font-weight:700}
+
+@media (max-width:1000px){
+  .pricing-guide{padding:0 16px 24px}
+  .pg-main{padding:34px 24px 26px}
+  .pg-main-pill{left:18px;font-size:11px;padding:7px 14px}
+  .pg-alt{flex-direction:column;align-items:flex-start;padding:20px 24px;gap:12px}
+  .pg-addons{grid-template-columns:1fr;gap:10px}
+}
+
 /* ===== Headguardner gallery ===== */
 .hg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .hg-card{border-radius:14px;overflow:hidden;background:var(--bg);border:1px solid var(--line);transition:all .35s ease}
@@ -1098,95 +1179,116 @@ footer{background:var(--forest-deep);color:rgba(255,255,255,.78);padding:40px 40
 
 <div class="color-note">선택하신 컬러에 맞춰 천정·벽면·도어·기둥 트리밍까지 통일감 있게 풀엠보로 마감해 드립니다. 투톤 조합·맞춤 컬러는 상담 시 별도 안내해 드립니다.</div>
 
-<!-- ===== Add-ons ===== -->
+<!-- ===== 주문 안내 · 가격 가이드 ===== -->
 <div class="section-head">
   <div class="eyebrow">
     <span class="line"></span>
-    <span class="tag">추가 선택 옵션 · 3종</span>
+    <span class="tag">주문 안내 · 가격 가이드</span>
   </div>
-  <h3>필요에 따라 <em>더하실 수 있는</em><br>세 가지 옵션.</h3>
-  <p class="lede">풀엠보 풀패키지(₩337만원)에 더해 선택하실 수 있는 옵션입니다. 헤드가드너만 론칭 특가 적용, 풀데크·매트리스는 정상가 적용됩니다.</p>
+  <h3>원하시는 <em>옵션을 골라</em><br>담당자에게 전달해 주세요.</h3>
+  <p class="lede">메인 패키지(★ 할인특가)와 별도 옵션을 자유롭게 조합하실 수 있습니다. 상단·중단·하단 색상은 상담 시 안내해 드리며, 모든 가격은 부가세 포함입니다.</p>
+</div>
+
+<section class="pricing-guide">
+
+  <!-- 메인 패키지 -->
+  <div class="pg-main">
+    <span class="pg-main-pill">★ 메인 패키지 · 할인특가</span>
+    <div class="pg-main-title">풀트리밍 <em>패키지</em>.</div>
+    <div class="pg-main-desc">대리석플로어 + 엠보 풀트리밍 + 풀방진 + 기둥 5개 트리밍 + 미니 사각천정등 <span class="pg-color-note">(상단·중단·하단 색상 선택)</span></div>
+    <div class="pg-breakdown">
+      <div class="pg-line"><span>엠보 풀트리밍 (대리석플로어 포함)</span><span>3,600,000원</span></div>
+      <div class="pg-line"><span>풀 방진</span><span>700,000원</span></div>
+      <div class="pg-line"><span>기둥 5개 트리밍</span><span>400,000원</span></div>
+      <div class="pg-line"><span>미니 사각 천정등</span><span>200,000원</span></div>
+      <div class="pg-line total"><span>정가 합계</span><span>4,900,000원</span></div>
+      <div class="pg-line discount"><span>할인</span><span>−1,530,000원</span></div>
+    </div>
+    <div class="pg-final">
+      <span class="pg-final-label">할인특가</span>
+      <span class="pg-final-price">3,370,000원</span>
+    </div>
+  </div>
+
+  <!-- 대안 패키지 -->
+  <div class="pg-alt">
+    <div class="pg-alt-left">
+      <div class="pg-alt-title">풀트리밍 패키지 <span class="pg-alt-tag">바닥 제외</span></div>
+      <div class="pg-alt-desc">엠보 풀트리밍 — 대리석플로어 미포함 (상단·중단·하단 색상 선택)</div>
+    </div>
+    <div class="pg-alt-price">2,700,000원</div>
+  </div>
+
+  <!-- 개별 추가 옵션 -->
+  <div class="pg-addon-head">
+    <span class="pg-addon-kicker">개별 추가 옵션</span>
+    <span class="pg-addon-line"></span>
+  </div>
+  <div class="pg-addons">
+    <div class="pg-addon">
+      <div class="pg-addon-name">풀 방진 추가</div>
+      <div class="pg-addon-price">700,000원</div>
+    </div>
+    <div class="pg-addon">
+      <div class="pg-addon-name">기둥 5개 추가 트리밍</div>
+      <div class="pg-addon-price">400,000원</div>
+    </div>
+    <div class="pg-addon">
+      <div class="pg-addon-name">미니 사각 천정등</div>
+      <div class="pg-addon-price">200,000원</div>
+    </div>
+    <div class="pg-addon">
+      <div class="pg-addon-name">천정 헤드라이닝<span class="pg-addon-sub">천정·벽면 방진 포함</span></div>
+      <div class="pg-addon-price">300,000원</div>
+    </div>
+    <div class="pg-addon star">
+      <div class="pg-addon-name">오픈격벽 <span class="pg-addon-promo">★ 사전 프로모션</span></div>
+      <div class="pg-addon-price"><s>1,250,000원</s><strong>1,050,000원</strong></div>
+    </div>
+    <div class="pg-addon">
+      <div class="pg-addon-name">디자인카고 전용 풀사이즈 침상<span class="pg-addon-sub">매트리스 포함 · 높이 310 × 세로 2,250 × 가로 1,570mm</span></div>
+      <div class="pg-addon-price">900,000원</div>
+    </div>
+    <div class="pg-addon star">
+      <div class="pg-addon-name">가변형 철제프레임 침상 <span class="pg-addon-promo">★ 할인특가</span></div>
+      <div class="pg-addon-price"><s>1,500,000원</s><strong>1,300,000원</strong></div>
+    </div>
+  </div>
+
+  <div class="pg-note"><strong>※ 모든 가격은 부가세 포함입니다.</strong> 상단·중단·하단 색상 선택과 상세 일정은 상담 시 안내드립니다. ★ 표시 옵션은 기간·수량 한정 프로모션가로, 종료 시 정상가로 전환됩니다.</div>
+
+</section>
+
+
+<!-- ===== 헤드라이너 4색 컬러 가이드 ===== -->
+<div class="section-head" style="padding-bottom:12px">
+  <div class="eyebrow">
+    <span class="line"></span>
+    <span class="tag">헤드라이너 트리밍 · 4가지 컬러</span>
+  </div>
+  <h3>운전석 헤드라이너 <em>색상</em> 가이드.</h3>
+  <p class="lede">엠보 풀트리밍 상단 색상의 시공 예시입니다. 운전석에 앉을 때 시야에 가장 먼저 들어오는 면으로, 전체 마감의 톤을 결정합니다.</p>
 </div>
 
 <div class="addons-wrap">
-  <div class="cat-header">
-    <span class="cat-header-num">01</span>
-    <span class="cat-header-title"><em>추가</em> 선택 옵션</span>
-    <span class="cat-header-count">3개 옵션</span>
-  </div>
-
-  <div class="option-cards">
-
-    <div class="opt-card star">
-      <div class="opt-icon">◆</div>
-      <div class="opt-num">N° 01 · 한정 할인</div>
-      <div class="opt-title">운전석 <em>헤드가드너</em></div>
-      <div class="opt-desc">운전석 위쪽 헤드라이너 영역을 풀엠보로 트리밍합니다. 시야가 가장 먼저 닿는 부분이라, 카고 전체의 고급감을 결정짓는 디테일입니다. 4색 中 선택 — 아래 갤러리 참고.</div>
-      <div class="opt-prices">
-        <span class="opt-old">₩35만원</span>
-        <span class="opt-price">20<span class="opt-price-unit">만원</span></span>
-      </div>
-      <div class="opt-tags">
-        <span class="opt-tag launch">론칭 특가</span>
-        <span class="opt-tag optional">선택 옵션</span>
-      </div>
-    </div>
-
-    <div class="opt-card">
-      <div class="opt-icon">◈</div>
-      <div class="opt-num">N° 02</div>
-      <div class="opt-title">풀데크 <em>설치</em></div>
-      <div class="opt-desc">바닥 전체에 탈착 가능한 풀데크를 시공해 평탄한 적재·취침 면을 만듭니다. 블랙·브라운·아이보리·네이비 4색 中 선택.</div>
-      <div class="opt-prices">
-        <span class="opt-price">90<span class="opt-price-unit">만원</span></span>
-      </div>
-      <div class="opt-tags">
-        <span class="opt-tag optional">선택 옵션</span>
-      </div>
-    </div>
-
-    <div class="opt-card">
-      <div class="opt-icon">⌘</div>
-      <div class="opt-num">N° 03</div>
-      <div class="opt-title">침대 <em>매트리스</em></div>
-      <div class="opt-desc">풀데크 위에 까는 전용 매트리스. 블랙·브라운·네이비·아이보리 4색으로, 시트 컬러와 맞춰 통일감 있게 연출.</div>
-      <div class="opt-prices">
-        <span class="opt-price">35<span class="opt-price-unit">만원</span></span>
-      </div>
-      <div class="opt-tags">
-        <span class="opt-tag optional">선택 옵션</span>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- 헤드가드너 4종 갤러리 -->
-  <div class="cat-header" style="margin-top:48px">
-    <span class="cat-header-num">02</span>
-    <span class="cat-header-title">헤드가드너 · <em>4가지 컬러</em></span>
-    <span class="cat-header-count">아이보리·브라운·네이비·블랙</span>
-  </div>
-
   <div class="hg-grid">
     <div class="hg-card">
-      <div class="hg-ph"><img src="images/hg_ivory.jpg" alt="운전석 헤드가드너 — 아이보리" loading="lazy" decoding="async"></div>
+      <div class="hg-ph"><img src="images/hg_ivory.jpg" alt="헤드라이너 트리밍 — 아이보리" loading="lazy" decoding="async"></div>
       <div class="hg-label"><span><em>아이보리</em></span><span class="sw" style="background:#efe5d0"></span></div>
     </div>
     <div class="hg-card">
-      <div class="hg-ph"><img src="images/hg_brown.jpg" alt="운전석 헤드가드너 — 브라운" loading="lazy" decoding="async"></div>
+      <div class="hg-ph"><img src="images/hg_brown.jpg" alt="헤드라이너 트리밍 — 브라운" loading="lazy" decoding="async"></div>
       <div class="hg-label"><span><em>브라운</em></span><span class="sw" style="background:#b96e3a"></span></div>
     </div>
     <div class="hg-card">
-      <div class="hg-ph"><img src="images/hg_navy.jpg" alt="운전석 헤드가드너 — 네이비" loading="lazy" decoding="async"></div>
+      <div class="hg-ph"><img src="images/hg_navy.jpg" alt="헤드라이너 트리밍 — 네이비" loading="lazy" decoding="async"></div>
       <div class="hg-label"><span><em>네이비</em></span><span class="sw" style="background:#27418b"></span></div>
     </div>
     <div class="hg-card">
-      <div class="hg-ph"><img src="images/hg_black.jpg" alt="운전석 헤드가드너 — 블랙" loading="lazy" decoding="async"></div>
+      <div class="hg-ph"><img src="images/hg_black.jpg" alt="헤드라이너 트리밍 — 블랙" loading="lazy" decoding="async"></div>
       <div class="hg-label"><span><em>블랙</em></span><span class="sw" style="background:#1c1c1c"></span></div>
     </div>
   </div>
-
-  <div class="color-note" style="margin-top:18px;padding-left:0;padding-right:0">선택하신 풀엠보 시트 컬러와 동일한 컬러로 매칭해 시공해 드립니다. 운전석에 앉을 때 시야에 가장 먼저 들어오는 면이라, 전체 마감의 톤을 결정합니다.</div>
 </div>
 
 <!-- ===== Deck + Mattress install gallery ===== -->
