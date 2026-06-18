@@ -1,0 +1,301 @@
+{
+  "schemaVersion": "0.2.0",
+  "lastUpdated": "2026-05-05",
+  "description": "바둑으로RPG 스테이지 종료조건/난이도 룰셋. Firebase Remote Config로 라이브 튜닝 가능.",
+
+  "global": {
+    "scoring": {
+      "rule": "japanese",
+      "komiByBoardSize": { "9": 6.5, "13": 6.5, "19": 6.5 }
+    },
+    "terminationTriggers": [
+      "passPass",
+      "aiResign",
+      "playerResign",
+      "timeout"
+    ],
+    "resignEvaluationDefaults": {
+      "minMovesBeforeEval": 20,
+      "evalIntervalMoves": 2
+    },
+    "winrateEngineRequired": true
+  },
+
+  "engines": {
+    "LocalRuleBased": {
+      "type": "rulebased",
+      "providesWinrate": false,
+      "providesScoreEstimate": true,
+      "notes": "1~2스테이지 전용. 패턴 + 약식 MCTS."
+    },
+    "KataGoLite_b6c96": {
+      "type": "katago",
+      "model": "b6c96",
+      "providesWinrate": true,
+      "providesScoreEstimate": true
+    },
+    "KataGoLite_b10": {
+      "type": "katago",
+      "model": "b10",
+      "providesWinrate": true,
+      "providesScoreEstimate": true
+    }
+  },
+
+  "stages": [
+    {
+      "id": 1,
+      "region": "초심자 마을",
+      "background": "숲",
+      "boss": "멍때리기 장인",
+      "concept": "첫 수, 기본 규칙",
+      "boardSize": 9,
+      "targetKyu": 30,
+      "engine": "LocalRuleBased",
+      "engineParams": { "visits": 0 },
+      "resign": {
+        "byLeadPoints": 8,
+        "byWinrateBelow": null,
+        "minMovesBeforeEval": 30
+      },
+      "time": { "rule": "fischer", "mainSeconds": 180, "incrementSeconds": 5 },
+      "assist": {
+        "blockSuicide": true,
+        "blockKoIllegal": true,
+        "passButtonHidden": true,
+        "showDeadStones": true,
+        "undoAllowed": 1,
+        "autoReplayHighlights": 3,
+        "illegalMoveToast": "그곳엔 둘 수 없어요!"
+      }
+    },
+    {
+      "id": 2,
+      "region": "돌멩이 숲",
+      "background": "사막",
+      "boss": "길막 너구리",
+      "concept": "연결과 끊음",
+      "boardSize": 9,
+      "targetKyu": 28,
+      "engine": "LocalRuleBased",
+      "engineParams": { "visits": 0 },
+      "resign": {
+        "byLeadPoints": 10,
+        "byWinrateBelow": null,
+        "minMovesBeforeEval": 30
+      },
+      "time": { "rule": "fischer", "mainSeconds": 180, "incrementSeconds": 5 },
+      "assist": {
+        "blockSuicide": true,
+        "blockKoIllegal": true,
+        "passButtonHidden": false,
+        "showDeadStones": true,
+        "undoAllowed": 0,
+        "autoReplayHighlights": 3
+      }
+    },
+    {
+      "id": 3,
+      "region": "흑백 시장",
+      "background": "호수",
+      "boss": "흥정왕 상인",
+      "concept": "실리와 균형",
+      "boardSize": 9,
+      "targetKyu": 25,
+      "engine": "KataGoLite_b6c96",
+      "engineParams": { "visits": 8 },
+      "resign": {
+        "byLeadPoints": 12,
+        "byWinrateBelow": 0.15,
+        "minMovesBeforeEval": 40
+      },
+      "time": { "rule": "fischer", "mainSeconds": 300, "incrementSeconds": 5 },
+      "assist": {
+        "blockSuicide": true,
+        "blockKoIllegal": true,
+        "passButtonHidden": false,
+        "showDeadStones": true,
+        "undoAllowed": 0,
+        "autoReplayHighlights": 3
+      }
+    },
+    {
+      "id": 4,
+      "region": "구름 서당",
+      "background": "화산",
+      "boss": "구름 훈장님",
+      "concept": "정석과 응용",
+      "boardSize": 13,
+      "targetKyu": 22,
+      "engine": "KataGoLite_b6c96",
+      "engineParams": { "visits": 16 },
+      "resign": {
+        "byLeadPoints": 15,
+        "byWinrateBelow": 0.12,
+        "minMovesBeforeEval": 50
+      },
+      "time": { "rule": "fischer", "mainSeconds": 300, "incrementSeconds": 5 },
+      "assist": {
+        "blockSuicide": true,
+        "blockKoIllegal": true,
+        "passButtonHidden": false,
+        "showDeadStones": true,
+        "undoAllowed": 0,
+        "autoReplayHighlights": 3
+      }
+    },
+    {
+      "id": 5,
+      "region": "반상의 미궁",
+      "background": "산속",
+      "boss": "수읽기 도깨비",
+      "concept": "수읽기",
+      "boardSize": 13,
+      "targetKyu": 20,
+      "engine": "KataGoLite_b6c96",
+      "engineParams": { "visits": 24 },
+      "resign": {
+        "byLeadPoints": 25,
+        "byWinrateBelow": 0.10,
+        "minMovesBeforeEval": 20
+      },
+      "time": { "rule": "fischer", "mainSeconds": 420, "incrementSeconds": 5 },
+      "assist": {
+        "blockSuicide": true,
+        "blockKoIllegal": true,
+        "passButtonHidden": false,
+        "showDeadStones": false,
+        "undoAllowed": 0,
+        "autoReplayHighlights": 3
+      }
+    },
+    {
+      "id": 6,
+      "region": "사활 사막",
+      "background": "지하",
+      "boss": "두눈 선인장",
+      "concept": "사활, 두 눈",
+      "boardSize": 13,
+      "targetKyu": 18,
+      "engine": "KataGoLite_b6c96",
+      "engineParams": { "visits": 32 },
+      "resign": {
+        "byLeadPoints": 30,
+        "byWinrateBelow": 0.10,
+        "minMovesBeforeEval": 20
+      },
+      "time": { "rule": "fischer", "mainSeconds": 420, "incrementSeconds": 5 },
+      "assist": {
+        "blockSuicide": true,
+        "blockKoIllegal": true,
+        "passButtonHidden": false,
+        "showDeadStones": false,
+        "undoAllowed": 0,
+        "autoReplayHighlights": 3
+      }
+    },
+    {
+      "id": 7,
+      "region": "패항구",
+      "background": "황폐한 숲",
+      "boss": "패싸움 해적단장",
+      "concept": "패, 팻감, 타이밍",
+      "boardSize": 13,
+      "targetKyu": 15,
+      "engine": "KataGoLite_b6c96",
+      "engineParams": { "visits": 64 },
+      "resign": {
+        "byLeadPoints": null,
+        "byWinrateBelow": 0.10,
+        "minMovesBeforeEval": 20
+      },
+      "time": { "rule": "fischer", "mainSeconds": 420, "incrementSeconds": 5 },
+      "assist": {
+        "blockSuicide": true,
+        "blockKoIllegal": true,
+        "passButtonHidden": false,
+        "showDeadStones": false,
+        "undoAllowed": 0,
+        "autoReplayHighlights": 5
+      }
+    },
+    {
+      "id": 8,
+      "region": "요석 왕국",
+      "background": "말라버린 호수",
+      "boss": "욕심쟁이 성주",
+      "concept": "요석과 폐석",
+      "boardSize": 19,
+      "targetKyu": 12,
+      "engine": "KataGoLite_b10",
+      "engineParams": { "visits": 128 },
+      "resign": {
+        "byLeadPoints": null,
+        "byWinrateBelow": 0.08,
+        "minMovesBeforeEval": 30
+      },
+      "time": { "rule": "fischer", "mainSeconds": 600, "incrementSeconds": 10 },
+      "assist": {
+        "blockSuicide": true,
+        "blockKoIllegal": true,
+        "passButtonHidden": false,
+        "showDeadStones": false,
+        "undoAllowed": 0,
+        "autoReplayHighlights": 5
+      }
+    },
+    {
+      "id": 9,
+      "region": "끝내기 시계탑",
+      "background": "비밀 통로",
+      "boss": "반집 백작",
+      "concept": "끝내기, 반집 승부",
+      "boardSize": 19,
+      "targetKyu": 8,
+      "engine": "KataGoLite_b10",
+      "engineParams": { "visits": 256 },
+      "resign": {
+        "byLeadPoints": null,
+        "byWinrateBelow": 0.05,
+        "minMovesBeforeEval": 60,
+        "playEndgameToCompletion": true
+      },
+      "time": { "rule": "fischer", "mainSeconds": 600, "incrementSeconds": 10 },
+      "assist": {
+        "blockSuicide": true,
+        "blockKoIllegal": true,
+        "passButtonHidden": false,
+        "showDeadStones": false,
+        "undoAllowed": 0,
+        "autoReplayHighlights": 7
+      }
+    },
+    {
+      "id": 10,
+      "region": "천지기반",
+      "background": "하늘",
+      "boss": "흑왕 현묘자",
+      "concept": "종합 대국, 세상 구원",
+      "boardSize": 19,
+      "targetKyu": 1,
+      "engine": "KataGoLite_b10",
+      "engineParams": { "visits": 512 },
+      "resign": {
+        "byLeadPoints": null,
+        "byWinrateBelow": null,
+        "minMovesBeforeEval": 9999,
+        "noResign": true,
+        "cutsceneOnDecisive": true
+      },
+      "time": { "rule": "fischer", "mainSeconds": 900, "incrementSeconds": 15 },
+      "assist": {
+        "blockSuicide": true,
+        "blockKoIllegal": true,
+        "passButtonHidden": false,
+        "showDeadStones": false,
+        "undoAllowed": 0,
+        "autoReplayHighlights": 10
+      }
+    }
+  ]
+}
